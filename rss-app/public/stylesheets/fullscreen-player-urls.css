@@ -1,0 +1,23 @@
+.boxee-progressbar-container {  
+  background-image: url(/images/full-screen-player/osd-progressbar-gradient.png);
+}
+
+.boxee-progressbar {
+  background-image: url(/images/full-screen-player/osd-progressbar.png);
+}
+
+.boxee-progressbar-buffered {
+  background-image: url(/images/full-screen-player/osd-progressbar-buffered.png);
+}
+
+.boxee-progressbar-position {
+  background-image: url(/images/full-screen-player/osd-progressbar-played.png);
+}
+
+.boxee-scrubber {
+  background-image: url(/images/full-screen-player/osd-scrubber-pause-on.png);
+}
+
+.paused .boxee-scrubber, .ended .boxee-scrubber {
+  background-image: url(/images/full-screen-player/osd-scrubber-play-on.png);
+}

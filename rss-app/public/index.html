@@ -1,0 +1,78 @@
+<html id='rss-app'>
+  <head>
+    <title>Boxee RSS App</title>
+    
+    <!-- NOTE that boxee-control URL must be absolute -->
+    <meta name="boxee-control" content="http://localhost:3000/javascripts/boxee-control.js" />
+    
+    <link rel="Stylesheet" type="text/css" href="/stylesheets/main.css" />
+    <link rel="Stylesheet" type="text/css" href="/stylesheets/fullscreen-player.css" />
+    <link rel="Stylesheet" type="text/css" href="/stylesheets/fullscreen-player-urls.css" />
+  </head>
+  <body>
+    
+    <div id='video-container' class='nav-area' data-spot-selector='video'>
+      <video id='player'></video>
+    </div>
+    
+    <div id='left-menu'>
+      <div id='left-menu-interior'>
+        <div id='left-menu-title' class='top-container location-text'>
+          RSS Feeds
+        </div>
+        <ul id='feed-list' class='nav-area'>
+          <li id='add-feed' class='feed'>
+            <div><img class='feed-thumbnail' src="/images/icon_rss_add.png"/></div>
+            Add Feed
+          </li>
+        </ul>
+      </div>
+      <div id='sub-menu'></div>
+    </div>
+    
+    <div id='feed-showcase'>
+      <div id='showcase-feeds'>
+        <ul id='showcase-list' class='nav-area'></ul>
+      </div>
+    </div>
+    
+    
+    <script id='rss-feed-template' type="text/x-handlebars-template">
+      <li class='feed' data-feed-url="{{url}}" data-feed-id="{{id}}">
+        <div><img class='feed-thumbnail' src="{{thumbnail}}"/></div>
+        {{title}}
+      </li>
+    </script>
+    
+    <script id="rss-item-template" type="text/x-handlebars-template">
+      <li class='video-item' data-video-src="{{url}}" data-video-title="{{title}}">
+        {{#if thumbnail}}
+          <div class='item-thumbnail item-block'>
+            <img src="{{thumbnail}}"/>
+          </div>
+        {{/if}}
+        <div class='item-title item-block'>
+          {{title}}
+        </div>
+      </li>
+    </script>
+    
+    <script id="rss-item-list-template" type="text/x-handlebars-template">
+      <ul id="feed-{{id}}" class='nav-area video-feed' data-feed-id="{{id}}">
+        {{#each videos}}
+          {{>item_partial}}
+        {{/each}}
+      </ul>
+    </script>
+    
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+    <script type='text/javascript' src='http://documentcloud.github.com/underscore/underscore-min.js'></script>
+    <script type='text/javascript' src='/javascripts/vendor/handlebars.1.0.0.beta.3.js'></script>
+    
+    <script type='text/javascript' src='/javascripts/boxee-utils.js'></script>
+    <script type='text/javascript' src='/javascripts/fullscreen-player.js'></script>
+    <script type='text/javascript' src='/javascripts/dpad-nav.js'></script>
+
+    <script type='text/javascript' src='/javascripts/main.js'></script>
+  </body>
+</html>
