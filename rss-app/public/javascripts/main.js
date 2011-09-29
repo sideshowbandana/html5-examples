@@ -132,10 +132,11 @@ $(document).ready(function () {
           var feed = {
             url: $li.attr('data-feed-url'),
             id: feeds++,
-            thumb: $li.find('img').attr('src')
+            thumbnail: $li.find('img').attr('src')
           }
-          console.log('grabbing ' + feed.url);
+          
           var promise = $.get("/feeds/" + encodeURIComponent(feed.url)).success(function(f) {
+            console.log(feed)
             addRSSFeed(feed, f.videos);
           });
           
