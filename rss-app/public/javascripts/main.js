@@ -134,6 +134,7 @@ $(document).ready(function () {
             id: feeds++,
             thumb: $li.find('img').attr('src')
           }
+          console.log('grabbing ' + feed.url);
           var promise = $.get("/feeds/" + encodeURIComponent(feed.url)).success(function(f) {
             addRSSFeed(feed, f.videos);
           });

@@ -38,7 +38,6 @@ app.get('/guides', function(req, res) {
 
 app.get('/guides/:name', function(req, res) {
   var name = req.params['name'];
-  console.log(name);
   
   if (MIRO_GUIDES.indexOf(name) === -1) {
     throw new Error("guide not found");
@@ -62,12 +61,22 @@ app.get('/guides/:name', function(req, res) {
     var feeds = [];
     
     result.channel.item.forEach(function(feedItem) {
-      feeds.push({
-        title: feedItem.title,
-        description: feedItem.description,
-        thumbnail: feedItem.thumbnail,
-        url: feedItem.link
-      });
+      var url = '';
+      if (feedItem.description) {
+        var md = feedItem.description.match(/(http.....feeds.feedburner.com\/(.*))/);
+        if (md) {
+          url = md[0].split('&')[0];
+          url = decodeURIComponent(url);
+        }
+      }
+      if (url) {
+        feeds.push({
+          title: feedItem.title,
+          description: feedItem.description,
+          thumbnail: feedItem.thumbnail,
+          url: url
+        });        
+      }
     });
     
     guide.feeds = feeds;
@@ -108,7 +117,7 @@ app.get('/userfeeds', function(req, res) {
 
 app.get('/feeds/*', function(req, res) {
   var feedUrl = req.params[0];
-  console.log(feedUrl);
+  
   var options = url.parse(feedUrl);
   var urlOptions = {
     host: options.host,
