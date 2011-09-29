@@ -136,7 +136,6 @@ $(document).ready(function () {
           }
           
           var promise = $.get("/feeds/" + encodeURIComponent(feed.url)).success(function(f) {
-            console.log(feed)
             addRSSFeed(feed, f.videos);
           });
           
