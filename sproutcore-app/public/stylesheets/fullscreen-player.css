@@ -1,0 +1,123 @@
+.boxee-player-osd {  
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  
+  font-family: arial;
+}
+
+.boxee-progressbar-container {
+  position: absolute;
+  left: 0px;
+  height: 66px;
+  bottom: 0px;
+  width: 100%;
+  
+  background: transparent url(../images/boxee-player/osd-progressbar-gradient.png);
+}
+
+.boxee-progressbar-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: auto;
+}
+
+.boxee-progressbar-elapsed-container {
+  width: 198px;
+  height: 100%;
+  float: left;
+  background-color: rgba(14, 20, 24, 0.4);
+  text-align: center;
+}
+
+.boxee-progressbar-duration-container {
+  width: 198px;
+  height: 100%;
+  float: right;
+  background-color: rgba(14, 20, 24, 0.4);
+  text-align: center;
+}
+
+.boxee-progressbar-elapsed-text, .boxee-progressbar-duration-text {
+  font-size: 30px;
+  padding-top: 17px;
+  color: #f8f8f8;
+}
+
+.boxee-progressbar {
+  position: relative;
+  margin: 0px 198px;
+  height: 100%;
+  background: transparent url(../images/boxee-player/osd-progressbar.png);
+}
+
+.boxee-progressbar-buffered {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  background: transparent url(../images/boxee-player/osd-progressbar-buffered.png);
+}
+
+.boxee-progressbar-position {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;  
+  background: transparent url(../images/boxee-player/osd-progressbar-played.png);
+}
+
+.boxee-scrubber-container {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  height: 66px;
+  margin-right: 186px;
+  overflow: visible;
+}
+
+.boxee-scrubber {
+  position: absolute;
+  z-index: 100;
+  left: 0px;
+  top: 0px;
+  height: 66px;
+  width: 186px;
+  background: transparent url(../images/boxee-player/osd-scrubber-pause-on.png);
+}
+
+.paused .boxee-scrubber, .ended .boxee-scrubber {
+  background: transparent url(../images/boxee-player/osd-scrubber-play-on.png);
+}
+
+.seeking .boxee-seeking {
+  display: block;
+}
+
+.boxee-seeking {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  top: 45%;
+}
+
+.boxee-player-title {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(14, 20, 24, 0.4);
+}
+
+.boxee-player-title-text {
+  padding: 47px;
+  font-size: 60px;
+  width: auto;
+  color: #f8f8f8;
+}

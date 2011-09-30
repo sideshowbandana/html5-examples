@@ -1,0 +1,106 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- NOTE that boxee-control URL must be absolute -->
+  <meta name="boxee-control" content="http://localhost:3000/javascripts/boxee-control.js" />
+  
+  <link rel="Stylesheet" type="text/css" href="/stylesheets/main.css" />
+  <link rel="Stylesheet" type="text/css" href="/stylesheets/fullscreen-player.css" />
+  <link rel="Stylesheet" type="text/css" href="/stylesheets/fullscreen-player-urls.css" />
+
+  <title>Boxee RSS App with SproutCore</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <script type="text/x-handlebars" data-template-name='feed-template'>
+    <div>
+      {{#if content.thumbnail}}
+        <img {{bindAttr src="content.thumbnail"}}/>
+      {{/if}}
+    </div>
+    {{content.title}}
+  </script>
+  
+  <script type="text/x-handlebars" data-template-name='video-item-template'>
+    {{#if content.thumbnail}}
+      <div class='item-thumbnail item-block'>
+        <img {{bindAttr src="content.thumbnail"}}/>
+      </div>
+    {{/if}}
+    <div class='item-title item-block'>
+      {{content.title}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name='video-feed-template-dead'>
+    {{collection contentBinding="content.videoItems" class="video-feed" tagName="ul" classBindings="content.isActive" itemViewClass="App.VideoItemView"}}
+  </script>
+
+  
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <div id='left-menu'>
+      <div id='left-menu-interior'>
+        <div id='left-menu-title' class='top-container location-text'>
+          {{App.title}}
+        </div>
+        {{collection contentBinding="App.feedsController" tagName="ul" id="feeds" itemViewClass="App.FeedView"}}
+      </div>
+      <div id='sub-menu'>
+        {{collection contentBinding="App.feedsController" tagName="div" id="video-feeds" itemViewClass="App.VideoFeedView"}}
+      </div>
+    </div>
+    
+    <div id='video-container' class='nav-area' data-spot-selector='video'>
+      <video id='player'></video>
+      <div class='boxee-player-osd'>
+        <div class='boxee-player-title'>
+          <div class='boxee-player-title-text'></div>
+        </div>
+        <div class='boxee-seeking'>Loading</div>
+        <div class='boxee-progressbar-container'>
+          <div class='boxee-progressbar-elapsed-container'>
+            <div class='boxee-progressbar-elapsed-text'></div>
+          </div>
+          <div class='boxee-progressbar-duration-container'>
+            <div class='boxee-progressbar-duration-text'></div>
+          </div>
+          <div class='boxee-progressbar'>
+            <div class='boxee-progressbar-wrapper'>
+              <div class='boxee-progressbar-buffered'></div>
+              <div class='boxee-progressbar-position'></div>
+            
+              <div class='boxee-scrubber-container'>
+                <div class='boxee-scrubber'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </script>
+
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script type='text/javascript' src='http://documentcloud.github.com/underscore/underscore-min.js'></script>
+  <script type='text/javascript' src="/javascripts/vendor/sproutcore-2.0.beta.3.js"></script>
+  
+  <script type='text/javascript' src='/javascripts/boxee-utils.js'></script>
+  <script type='text/javascript' src='/javascripts/fullscreen-player.js'></script>
+  
+  <script type='text/javascript' src="/javascripts/main.js"></script>
+</body>
+</html>
