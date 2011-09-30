@@ -1,4 +1,8 @@
-Example HTML5 apps for the Boxee Box browser
+**Example HTML5 apps for the Boxee Box browser**
+
+Use these examples to jump-start your leanback app!
+
+Dive into the individual app directories to learn more about each approach.
 
 rss-app
 ===
