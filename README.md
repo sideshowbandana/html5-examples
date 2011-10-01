@@ -1,5 +1,4 @@
-
-**Presentation Link:  **
+Presentation Link: 
 https://docs.google.com/present/edit?id=0AcuQDZKq6ks8ZGc4Nzk4dmJfODNmOGs0ZDUydw&hl=en_US
 
 
