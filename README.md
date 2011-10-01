@@ -4,6 +4,8 @@ Use these examples to jump-start your leanback app!
 
 Dive into the individual app directories to learn more about each approach.
 
+**Presentation Link**
+https://docs.google.com/present/edit?id=0AcuQDZKq6ks8ZGc4Nzk4dmJfODNmOGs0ZDUydw&hl=en_US
 
 Benefits of HTML5 Approach
 ----
